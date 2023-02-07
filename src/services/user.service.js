@@ -37,13 +37,13 @@ const createUser = async (data) => {
   try {
     const user = await User.findOne({
       where: {
-        email: data.email,
+        userName: data.userName,
       },
     });
 
-    // Email đã tồn tại trong DB
+    // UserName đã tồn tại trong DB
     if (user) {
-      throw new AppError(400, "Email is existed");
+      throw new AppError(400, "UserName is existed");
     }
 
     // Ví dụ trong trường hợp admin thêm user, chỉ cần dùng email, ta cần phải tạo một mật khẩu ngẫu nhiên

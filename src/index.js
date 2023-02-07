@@ -1,11 +1,13 @@
 const express = require("express");
 const { sequelize } = require("./models");
+var cors = require("cors");
 const { AppError, handleErrors } = require("./helpers/error");
 const authorization = require("./middleware/authorization");
 
 const app = express();
 app.use(express.json());
 app.use(express.static("."));
+app.use(cors());
 
 // Sync cái model của sequelize với DB
 sequelize.sync({ alter: true });

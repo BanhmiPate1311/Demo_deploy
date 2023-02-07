@@ -18,9 +18,13 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING(50),
         field: "last_name",
       },
+      userName: {
+        type: DataTypes.STRING(50),
+        field: "user_name",
+      },
       email: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
         unique: "email",
         validate: {
           isEmail: {
@@ -30,7 +34,7 @@ module.exports = (sequelize) => {
       },
       password: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
         // validate: {
         //   // Demo custom validatiors
         //   isMatchedConfirmPassword: (value) => {
